@@ -1,9 +1,9 @@
 import requests
-from flask import Flask
-from bs4 import BeautifulSoup
+from flask import Flask, jsonify
+from stripGekko import StripGekko
 
 app = Flask(__name__)
-
+stripGekko = StripGekko()
 
 
 
@@ -12,6 +12,11 @@ def home():
     return "I dont like myself"
 
 
+@app.route("/TVL")
+def TVL():
+    data = stripGekko.getTVL()
+    print(data)
+    return jsonify(data)
 
 
 
