@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect
 from stripGekko import StripGekko
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ stripGekko = StripGekko()
 
 @app.route("/")
 def home():
-    return "I dont like myself"
+    return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
 
 @app.route("/TVL")
@@ -29,8 +29,11 @@ def coin():
 @app.route("/chart")
 def chart():
     coinpair = request.args.get('coinpair')
-    data = stripGekko.getHistoricalData(coinpair)
+    data = {
+    "data": stripGekko.getHistoricalData(coinpair)
+    }
     return jsonify(data)
+    
 
 
 @app.route("/tickers")
