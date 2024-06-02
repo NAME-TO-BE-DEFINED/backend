@@ -1,0 +1,1594 @@
+[
+  {
+    "inputs": [
+      { "internalType": "string", "name": "ctfName", "type": "string" },
+      { "internalType": "string", "name": "ctfSymbol", "type": "string" },
+      { "internalType": "address", "name": "admin", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "AccessControlBadConfirmation", "type": "error" },
+  {
+    "inputs": [
+      { "internalType": "uint48", "name": "schedule", "type": "uint48" }
+    ],
+    "name": "AccessControlEnforcedDefaultAdminDelay",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "AccessControlEnforcedDefaultAdminRules",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "defaultAdmin", "type": "address" }
+    ],
+    "name": "AccessControlInvalidDefaultAdmin",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" },
+      { "internalType": "bytes32", "name": "neededRole", "type": "bytes32" }
+    ],
+    "name": "AccessControlUnauthorizedAccount",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "target", "type": "address" }
+    ],
+    "name": "AddressEmptyCode",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "AddressInsufficientBalance",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "BalancerPoolManager__BPTNotReceived",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "tokens", "type": "uint256" },
+      { "internalType": "uint256", "name": "maxTokens", "type": "uint256" }
+    ],
+    "name": "BalancerPoolManager__ExceededMaxPoolTokens",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "joinAssetsCount",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "assetsCount", "type": "uint256" }
+    ],
+    "name": "BalancerPoolManager__JoinAssetsCountMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "exitTokenIndexLength",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "chainsLength", "type": "uint256" }
+    ],
+    "name": "CTF__ExitTokenIndexLengthMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "minBPTOutLength",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "chainsLength", "type": "uint256" }
+    ],
+    "name": "CTF__MinBPTOutLengthMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "minExitTokenOutLength",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "chainsLength", "type": "uint256" }
+    ],
+    "name": "CTF__MinExitTokenOutLengthMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "swapProvidersLength",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "chainsLength", "type": "uint256" }
+    ],
+    "name": "CTF__SwapProvidersLengthMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "swapsCalldataLength",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "chainsLength", "type": "uint256" }
+    ],
+    "name": "CTF__SwapsCallDataLengthMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "tokens", "type": "uint256" },
+      { "internalType": "uint256", "name": "chains", "type": "uint256" }
+    ],
+    "name": "CTF__TokensAndChainsMismatch",
+    "type": "error"
+  },
+  { "inputs": [], "name": "ECDSAInvalidSignature", "type": "error" },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "length", "type": "uint256" }
+    ],
+    "name": "ECDSAInvalidSignatureLength",
+    "type": "error"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "s", "type": "bytes32" }],
+    "name": "ECDSAInvalidSignatureS",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "spender", "type": "address" },
+      { "internalType": "uint256", "name": "allowance", "type": "uint256" },
+      { "internalType": "uint256", "name": "needed", "type": "uint256" }
+    ],
+    "name": "ERC20InsufficientAllowance",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "uint256", "name": "balance", "type": "uint256" },
+      { "internalType": "uint256", "name": "needed", "type": "uint256" }
+    ],
+    "name": "ERC20InsufficientBalance",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "approver", "type": "address" }
+    ],
+    "name": "ERC20InvalidApprover",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "receiver", "type": "address" }
+    ],
+    "name": "ERC20InvalidReceiver",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "sender", "type": "address" }
+    ],
+    "name": "ERC20InvalidSender",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "spender", "type": "address" }
+    ],
+    "name": "ERC20InvalidSpender",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "deadline", "type": "uint256" }
+    ],
+    "name": "ERC2612ExpiredSignature",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "signer", "type": "address" },
+      { "internalType": "address", "name": "owner", "type": "address" }
+    ],
+    "name": "ERC2612InvalidSigner",
+    "type": "error"
+  },
+  { "inputs": [], "name": "FailedInnerCall", "type": "error" },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" },
+      { "internalType": "uint256", "name": "currentNonce", "type": "uint256" }
+    ],
+    "name": "InvalidAccountNonce",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "router", "type": "address" }
+    ],
+    "name": "InvalidRouter",
+    "type": "error"
+  },
+  { "inputs": [], "name": "InvalidShortString", "type": "error" },
+  {
+    "inputs": [],
+    "name": "PoolManager__CannotAddChainSelectorForTheSameChain",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "PoolManager__CannotAddCrossChainPoolManagerForTheSameChain",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "PoolManager__ChainSelectorNotFound",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "crossChainPoolManager",
+        "type": "address"
+      }
+    ],
+    "name": "PoolManager__CrossChainPoolManagerAlreadySet",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "PoolManager__CrossChainPoolManagerNotFound",
+    "type": "error"
+  },
+  {
+    "inputs": [{ "internalType": "bytes", "name": "data", "type": "bytes" }],
+    "name": "PoolManager__FailedToWithdrawETH",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "PoolManager__InvalidChainSelector",
+    "type": "error"
+  },
+  { "inputs": [], "name": "PoolManager__InvalidPoolManager", "type": "error" },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "sender", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "crossChainPoolManager",
+        "type": "address"
+      }
+    ],
+    "name": "PoolManager__InvalidReceiptSender",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "poolAddress", "type": "address" },
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "PoolManager__PoolAlreadyCreated",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "PoolManager__PoolNotActive",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "PoolManager__UnknownChain",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "Pool__NotActive",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint8", "name": "bits", "type": "uint8" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" }
+    ],
+    "name": "SafeCastOverflowedUintDowncast",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token", "type": "address" }
+    ],
+    "name": "SafeERC20FailedOperation",
+    "type": "error"
+  },
+  {
+    "inputs": [{ "internalType": "string", "name": "str", "type": "string" }],
+    "name": "StringTooLong",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "balance", "type": "uint256" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "Swap__InsufficientFunds",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "passedAddress", "type": "address" }
+    ],
+    "name": "Swap__InvalidToken",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "providedAmount",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "usedAmount", "type": "uint256" }
+    ],
+    "name": "Swap__ShouldUseAllTokens",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes", "name": "errorData", "type": "bytes" }
+    ],
+    "name": "Swap__SwapFailed",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountBeforeSwap",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountAfterSwap",
+        "type": "uint256"
+      }
+    ],
+    "name": "Swap__USDCAmountShouldIncrease",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "UnknownChainConfig",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "Approval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "CTF__Deposited",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "ctfAmountBurned",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "usdcAmountWithdrawn",
+        "type": "uint256"
+      }
+    ],
+    "name": "CTF__Withdrawn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [],
+    "name": "DefaultAdminDelayChangeCanceled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint48",
+        "name": "newDelay",
+        "type": "uint48"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint48",
+        "name": "effectSchedule",
+        "type": "uint48"
+      }
+    ],
+    "name": "DefaultAdminDelayChangeScheduled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [],
+    "name": "DefaultAdminTransferCanceled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newAdmin",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint48",
+        "name": "acceptSchedule",
+        "type": "uint48"
+      }
+    ],
+    "name": "DefaultAdminTransferScheduled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [],
+    "name": "EIP712DomainChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "depositId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      }
+    ],
+    "name": "PoolManager__AllDepositsConfirmed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "withdrawId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      }
+    ],
+    "name": "PoolManager__AllWithdrawalsConfirmed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "crossChainPoolManager",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "messageId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "poolName",
+        "type": "string"
+      }
+    ],
+    "name": "PoolManager__CrossChainCreatePoolRequested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "depositId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "PoolManager__CrossChainDepositConfirmed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "depositId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "messageId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "usdcAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "PoolManager__CrossChainDepositRequested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "poolAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "poolId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      }
+    ],
+    "name": "PoolManager__CrossChainPoolCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "crossChainPoolManager",
+        "type": "address"
+      }
+    ],
+    "name": "PoolManager__CrossChainPoolManagerSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "withdrawId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "messageId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "bptAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "PoolManager__CrossChainWithdrawRequested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "withdrawId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "PoolManager__CrossChainWithdrawalConfirmed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "PoolManager__ETHWithdrawn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "crossChainPoolManager",
+        "type": "address"
+      }
+    ],
+    "name": "PoolManager__FailedToCreateCrossChainPool",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "forUser",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "depositId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "usdcAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "PoolManager__FailedToDeposit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "forUser",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "depositId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "PoolManager__SameChainDeposited",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "poolId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "poolAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "tokens",
+        "type": "address[]"
+      }
+    ],
+    "name": "PoolManager__SameChainPoolCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "forUser",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "withdrawId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "PoolManager__SameChainWithdrawn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "previousAdminRole",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "newAdminRole",
+        "type": "bytes32"
+      }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      }
+    ],
+    "name": "Swap__TokensSwapped",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "Transfer",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DOMAIN_SEPARATOR",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "TOKENS_MANAGER_ROLE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "acceptDefaultAdminTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "underlyingTokens",
+        "type": "address[]"
+      },
+      { "internalType": "uint256[]", "name": "chains", "type": "uint256[]" }
+    ],
+    "name": "addUnderlyingTokensCrossChain",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "underlyingTokens",
+        "type": "address[]"
+      }
+    ],
+    "name": "addUnderlyingTokensSameChain",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "address", "name": "spender", "type": "address" }
+    ],
+    "name": "allowance",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "spender", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" }
+    ],
+    "name": "approve",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "balanceOf",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newAdmin", "type": "address" }
+    ],
+    "name": "beginDefaultAdminTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cancelDefaultAdminTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "messageId", "type": "bytes32" },
+          {
+            "internalType": "uint64",
+            "name": "sourceChainSelector",
+            "type": "uint64"
+          },
+          { "internalType": "bytes", "name": "sender", "type": "bytes" },
+          { "internalType": "bytes", "name": "data", "type": "bytes" },
+          {
+            "components": [
+              { "internalType": "address", "name": "token", "type": "address" },
+              { "internalType": "uint256", "name": "amount", "type": "uint256" }
+            ],
+            "internalType": "struct Client.EVMTokenAmount[]",
+            "name": "destTokenAmounts",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct Client.Any2EVMMessage",
+        "name": "message",
+        "type": "tuple"
+      }
+    ],
+    "name": "ccipReceive",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint48", "name": "newDelay", "type": "uint48" }
+    ],
+    "name": "changeDefaultAdminDelay",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "decimals",
+    "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "defaultAdmin",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "defaultAdminDelay",
+    "outputs": [{ "internalType": "uint48", "name": "", "type": "uint48" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "defaultAdminDelayIncreaseWait",
+    "outputs": [{ "internalType": "uint48", "name": "", "type": "uint48" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "swapProviders",
+        "type": "address[]"
+      },
+      {
+        "internalType": "bytes[][]",
+        "name": "swapsCalldata",
+        "type": "bytes[][]"
+      },
+      { "internalType": "uint256[]", "name": "minBPTOut", "type": "uint256[]" },
+      {
+        "internalType": "uint256",
+        "name": "usdcAmountPerChain",
+        "type": "uint256"
+      }
+    ],
+    "name": "deposit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "eip712Domain",
+    "outputs": [
+      { "internalType": "bytes1", "name": "fields", "type": "bytes1" },
+      { "internalType": "string", "name": "name", "type": "string" },
+      { "internalType": "string", "name": "version", "type": "string" },
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" },
+      {
+        "internalType": "address",
+        "name": "verifyingContract",
+        "type": "address"
+      },
+      { "internalType": "bytes32", "name": "salt", "type": "bytes32" },
+      { "internalType": "uint256[]", "name": "extensions", "type": "uint256[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllUnderlyingTokens",
+    "outputs": [
+      {
+        "internalType": "address[]",
+        "name": "underlyingTokens",
+        "type": "address[]"
+      },
+      { "internalType": "uint256[]", "name": "chains", "type": "uint256[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "getChainPool",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "poolTokens",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "weights",
+            "type": "uint256[]"
+          },
+          { "internalType": "bytes32", "name": "poolId", "type": "bytes32" },
+          {
+            "internalType": "enum PoolManager.PoolStatus",
+            "name": "status",
+            "type": "uint8"
+          }
+        ],
+        "internalType": "struct PoolManager.ChainPool",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "getChainUnderlyingTokens",
+    "outputs": [
+      { "internalType": "address[]", "name": "", "type": "address[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getChains",
+    "outputs": [
+      { "internalType": "uint256[]", "name": "chains", "type": "uint256[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "getCrossChainPoolManager",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "poolId", "type": "bytes32" },
+      {
+        "internalType": "uint256",
+        "name": "exitTokenIndex",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "bptAmountIn", "type": "uint256" },
+      { "internalType": "uint256", "name": "minAmountOut", "type": "uint256" }
+    ],
+    "name": "getExitPoolData",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "contract IAsset[]",
+            "name": "assets",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "minAmountsOut",
+            "type": "uint256[]"
+          },
+          { "internalType": "bytes", "name": "userData", "type": "bytes" },
+          {
+            "internalType": "bool",
+            "name": "toInternalBalance",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct IVault.ExitPoolRequest",
+        "name": "exitPoolRequest",
+        "type": "tuple"
+      },
+      {
+        "internalType": "contract IERC20",
+        "name": "exitToken",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRouter",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "withdrawId", "type": "bytes32" },
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "getWithdrawal",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "enum PoolManager.WithdrawStatus",
+            "name": "status",
+            "type": "uint8"
+          },
+          { "internalType": "address", "name": "user", "type": "address" },
+          { "internalType": "uint256", "name": "bptAmount", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "usdcReceived",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PoolManager.ChainWithdrawal",
+        "name": "chainWithdrawal",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "hasRole",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "name",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "owner", "type": "address" }
+    ],
+    "name": "nonces",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingDefaultAdmin",
+    "outputs": [
+      { "internalType": "address", "name": "newAdmin", "type": "address" },
+      { "internalType": "uint48", "name": "schedule", "type": "uint48" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingDefaultAdminDelay",
+    "outputs": [
+      { "internalType": "uint48", "name": "newDelay", "type": "uint48" },
+      { "internalType": "uint48", "name": "schedule", "type": "uint48" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "address", "name": "spender", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" },
+      { "internalType": "uint256", "name": "deadline", "type": "uint256" },
+      { "internalType": "uint8", "name": "v", "type": "uint8" },
+      { "internalType": "bytes32", "name": "r", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "s", "type": "bytes32" }
+    ],
+    "name": "permit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "rollbackDefaultAdminDelay",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" },
+      {
+        "internalType": "address",
+        "name": "crossChainPoolManager",
+        "type": "address"
+      }
+    ],
+    "name": "setCrossChainPoolManager",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }
+    ],
+    "name": "supportsInterface",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" }
+    ],
+    "name": "transfer",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" }
+    ],
+    "name": "transferFrom",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "bptAmountPerChain",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address[]",
+        "name": "swapProviders",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "exitTokenIndex",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "exitTokenMinAmountOut",
+        "type": "uint256[]"
+      },
+      { "internalType": "bytes[]", "name": "swapsCalldata", "type": "bytes[]" }
+    ],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "withdrawETH",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  { "stateMutability": "payable", "type": "receive" }
+]

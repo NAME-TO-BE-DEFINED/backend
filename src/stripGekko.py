@@ -94,3 +94,4 @@ class StripGekko:
 
 
 
+# StripGekko.getHistoricalData()
