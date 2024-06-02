@@ -95,6 +95,17 @@ def withraw():
         print("DONE!")
         data[key] = e
 
+
+    swapProviders = []
+    swapCalldata = []
+
+    for key, value in data.items():
+        swapProviders.append(value["SwapsProvider"])
+        swapCalldata.append("SwapsCalldata")
+    
+        data[key]["SwapsProvider"] = swapProviders
+        data[key]["SwapsCalldata"] = swapCalldata
+
     return jsonify(data)
 
 @app.route("/deposit")

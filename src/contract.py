@@ -66,7 +66,7 @@ class CTF:
 
         data = {
             "bptAmountPerChain": CTF_amount,
-            "swapProvider": self.SWAP_provider,
+            "SwapsProvider": self.SWAP_provider,
             "ExitTokenIndex": ExitTokenIndex[0],
             "SwapsCalldata": swapCalldata,
             "exitTokenMinAmountOut": onepercent
