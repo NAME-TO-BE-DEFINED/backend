@@ -4,6 +4,7 @@ from stripGekko import StripGekko
 from contract import CTF
 import os
 from dotenv import load_dotenv
+from pprint import pprint
 
 app = Flask(__name__)
 stripGekko = StripGekko()
@@ -105,6 +106,20 @@ def deposit():
         e = ctf.deposit(amount)
         print("DONE!")
         data[key] = e
+
+
+    swapProviders = []
+    swapCalldata = []
+
+    for key, value in data.items():
+        swapProviders.append(value["SwapsProvider"])
+        for i in value["SwapsCalldata"]:
+            swapCalldata.append(i)
+    
+        data[key]["SwapsProvider"] = swapProviders
+        data[key]["SwapsCalldata"] = swapCalldata
+
+
 
     return jsonify(data)
     

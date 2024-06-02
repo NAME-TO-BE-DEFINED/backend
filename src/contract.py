@@ -103,7 +103,7 @@ class CTF:
             "minBPTOut": 1,
             "SwapsProvider": self.SWAP_provider,
             "usdcAmount": usdcAmountPerChain,
-            "swapcalldata": swapCalldata
+            "SwapsCalldata": swapCalldata
         }
         
 
