@@ -1,0 +1,977 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "ctf", "type": "address" },
+      { "internalType": "address", "name": "admin", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "target", "type": "address" }
+    ],
+    "name": "AddressEmptyCode",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "AddressInsufficientBalance",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "BalancerPoolManager__BPTNotReceived",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "tokens", "type": "uint256" },
+      { "internalType": "uint256", "name": "maxTokens", "type": "uint256" }
+    ],
+    "name": "BalancerPoolManager__ExceededMaxPoolTokens",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "joinAssetsCount",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "assetsCount", "type": "uint256" }
+    ],
+    "name": "BalancerPoolManager__JoinAssetsCountMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "withdrawId", "type": "bytes32" }
+    ],
+    "name": "CrossChainPoolManager__CannotRetryFailedWithdraw",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "originMessageId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "CrossChainPoolManager__CannotRetrySendReceipt",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes", "name": "errorData", "type": "bytes" }
+    ],
+    "name": "CrossChainPoolManager__FailedToWithdrawETH",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CrossChainPoolManager__InvalidCTFAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "caller", "type": "address" }
+    ],
+    "name": "CrossChainPoolManager__OnlySelf",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "address", "name": "ctf", "type": "address" }
+    ],
+    "name": "CrossChainPoolManager__SenderIsNotCTF",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "messageId", "type": "bytes32" },
+      { "internalType": "bytes", "name": "messageData", "type": "bytes" }
+    ],
+    "name": "CrossChainPoolManager__UnknownMessage",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "messageId", "type": "bytes32" }
+    ],
+    "name": "CrossChainPoolManager__UnknownReceipt",
+    "type": "error"
+  },
+  { "inputs": [], "name": "FailedInnerCall", "type": "error" },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "router", "type": "address" }
+    ],
+    "name": "InvalidRouter",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "owner", "type": "address" }
+    ],
+    "name": "OwnableInvalidOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token", "type": "address" }
+    ],
+    "name": "SafeERC20FailedOperation",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "balance", "type": "uint256" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "Swap__InsufficientFunds",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "passedAddress", "type": "address" }
+    ],
+    "name": "Swap__InvalidToken",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "providedAmount",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "usedAmount", "type": "uint256" }
+    ],
+    "name": "Swap__ShouldUseAllTokens",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes", "name": "errorData", "type": "bytes" }
+    ],
+    "name": "Swap__SwapFailed",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountBeforeSwap",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountAfterSwap",
+        "type": "uint256"
+      }
+    ],
+    "name": "Swap__USDCAmountShouldIncrease",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "UnknownChainConfig",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "poolId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "depositId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "usdcAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "bptreceived",
+        "type": "uint256"
+      }
+    ],
+    "name": "CrossChainPoolManager__Deposited",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "CrossChainPoolManager__ETHWithdrawn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "depositId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "CrossChainPoolManager__FailedToDeposit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "originMessageId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "enum RequestReceipt.CrossChainReceiptType",
+        "name": "receiptType",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "errorData",
+        "type": "bytes"
+      }
+    ],
+    "name": "CrossChainPoolManager__FailedToSendReceipt",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "withdrawId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "CrossChainPoolManager__FailedToWithdraw",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "poolAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "poolId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "tokens",
+        "type": "address[]"
+      }
+    ],
+    "name": "CrossChainPoolManager__PoolCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "originMessageId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "receiptMessageId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "enum RequestReceipt.CrossChainReceiptType",
+        "name": "receiptType",
+        "type": "uint8"
+      }
+    ],
+    "name": "CrossChainPoolManager__ReceiptSent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "amount",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "withdrawId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "bptIn",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "usdcReceived",
+        "type": "uint256"
+      }
+    ],
+    "name": "CrossChainPoolManager__Withdrawn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "depositId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "CrossChainPoolManager__overrodeFailedDeposit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "withdrawId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "CrossChainPoolManager__overrodeFailedWithdraw",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferStarted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      }
+    ],
+    "name": "Swap__TokensSwapped",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "messageId", "type": "bytes32" },
+          {
+            "internalType": "uint64",
+            "name": "sourceChainSelector",
+            "type": "uint64"
+          },
+          { "internalType": "bytes", "name": "sender", "type": "bytes" },
+          { "internalType": "bytes", "name": "data", "type": "bytes" },
+          {
+            "components": [
+              { "internalType": "address", "name": "token", "type": "address" },
+              { "internalType": "uint256", "name": "amount", "type": "uint256" }
+            ],
+            "internalType": "struct Client.EVMTokenAmount[]",
+            "name": "destTokenAmounts",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct Client.Any2EVMMessage",
+        "name": "message",
+        "type": "tuple"
+      }
+    ],
+    "name": "ccipReceive",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCTF",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "poolId", "type": "bytes32" },
+      {
+        "internalType": "uint256",
+        "name": "exitTokenIndex",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "bptAmountIn", "type": "uint256" },
+      { "internalType": "uint256", "name": "minAmountOut", "type": "uint256" }
+    ],
+    "name": "getExitPoolData",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "contract IAsset[]",
+            "name": "assets",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "minAmountsOut",
+            "type": "uint256[]"
+          },
+          { "internalType": "bytes", "name": "userData", "type": "bytes" },
+          {
+            "internalType": "bool",
+            "name": "toInternalBalance",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct IVault.ExitPoolRequest",
+        "name": "exitPoolRequest",
+        "type": "tuple"
+      },
+      {
+        "internalType": "contract IERC20",
+        "name": "exitToken",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "depositId", "type": "bytes32" }
+    ],
+    "name": "getFailedDeposit",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "depositId",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "poolId",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "uint256",
+                "name": "minBPTOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "swapProvider",
+                "type": "address"
+              },
+              {
+                "internalType": "bytes[]",
+                "name": "swapsCalldata",
+                "type": "bytes[]"
+              }
+            ],
+            "internalType": "struct CrossChainRequest.CrossChainDepositRequest",
+            "name": "request",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "messageId",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "uint64",
+                "name": "sourceChainSelector",
+                "type": "uint64"
+              },
+              { "internalType": "bytes", "name": "sender", "type": "bytes" },
+              { "internalType": "bytes", "name": "data", "type": "bytes" },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "token",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "amount",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct Client.EVMTokenAmount[]",
+                "name": "destTokenAmounts",
+                "type": "tuple[]"
+              }
+            ],
+            "internalType": "struct Client.Any2EVMMessage",
+            "name": "ccipMessage",
+            "type": "tuple"
+          },
+          { "internalType": "bool", "name": "retriable", "type": "bool" }
+        ],
+        "internalType": "struct CrossChainPoolManager.FailedDeposit",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "withdrawId", "type": "bytes32" }
+    ],
+    "name": "getFailedWithdraw",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "withdrawalId",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "poolId",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "uint256",
+                "name": "bptAmountIn",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "exitTokenIndex",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "exitTokenMinAmountOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "swapProvider",
+                "type": "address"
+              },
+              {
+                "internalType": "bytes",
+                "name": "swapCalldata",
+                "type": "bytes"
+              }
+            ],
+            "internalType": "struct CrossChainRequest.CrossChainWithdrawRequest",
+            "name": "request",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "messageId",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "uint64",
+                "name": "sourceChainSelector",
+                "type": "uint64"
+              },
+              { "internalType": "bytes", "name": "sender", "type": "bytes" },
+              { "internalType": "bytes", "name": "data", "type": "bytes" },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "token",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "amount",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct Client.EVMTokenAmount[]",
+                "name": "destTokenAmounts",
+                "type": "tuple[]"
+              }
+            ],
+            "internalType": "struct Client.Any2EVMMessage",
+            "name": "ccipMessage",
+            "type": "tuple"
+          },
+          { "internalType": "bool", "name": "retriable", "type": "bool" }
+        ],
+        "internalType": "struct CrossChainPoolManager.FailedWithdraw",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRouter",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "depositId", "type": "bytes32" },
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "depositId", "type": "bytes32" },
+          { "internalType": "bytes32", "name": "poolId", "type": "bytes32" },
+          { "internalType": "uint256", "name": "minBPTOut", "type": "uint256" },
+          {
+            "internalType": "address",
+            "name": "swapProvider",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes[]",
+            "name": "swapsCalldata",
+            "type": "bytes[]"
+          }
+        ],
+        "internalType": "struct CrossChainRequest.CrossChainDepositRequest",
+        "name": "request",
+        "type": "tuple"
+      }
+    ],
+    "name": "overrideFailedDeposit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "withdrawId", "type": "bytes32" },
+      {
+        "components": [
+          {
+            "internalType": "bytes32",
+            "name": "withdrawalId",
+            "type": "bytes32"
+          },
+          { "internalType": "bytes32", "name": "poolId", "type": "bytes32" },
+          {
+            "internalType": "uint256",
+            "name": "bptAmountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "exitTokenIndex",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "exitTokenMinAmountOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "swapProvider",
+            "type": "address"
+          },
+          { "internalType": "bytes", "name": "swapCalldata", "type": "bytes" }
+        ],
+        "internalType": "struct CrossChainRequest.CrossChainWithdrawRequest",
+        "name": "request",
+        "type": "tuple"
+      }
+    ],
+    "name": "overrideFailedWithdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingOwner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "messageId", "type": "bytes32" },
+          {
+            "internalType": "uint64",
+            "name": "sourceChainSelector",
+            "type": "uint64"
+          },
+          { "internalType": "bytes", "name": "sender", "type": "bytes" },
+          { "internalType": "bytes", "name": "data", "type": "bytes" },
+          {
+            "components": [
+              { "internalType": "address", "name": "token", "type": "address" },
+              { "internalType": "uint256", "name": "amount", "type": "uint256" }
+            ],
+            "internalType": "struct Client.EVMTokenAmount[]",
+            "name": "destTokenAmounts",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct Client.Any2EVMMessage",
+        "name": "message",
+        "type": "tuple"
+      }
+    ],
+    "name": "processCCIPMessage",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "enum RequestReceipt.CrossChainReceiptType",
+            "name": "receiptType",
+            "type": "uint8"
+          },
+          { "internalType": "uint256", "name": "chainId", "type": "uint256" },
+          { "internalType": "bytes", "name": "data", "type": "bytes" }
+        ],
+        "internalType": "struct RequestReceipt.CrossChainReceipt",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "originMessageId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "retrySendReceipt",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "receiptMessageId",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "enum RequestReceipt.CrossChainReceiptType",
+                "name": "receiptType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint256",
+                "name": "chainId",
+                "type": "uint256"
+              },
+              { "internalType": "bytes", "name": "data", "type": "bytes" }
+            ],
+            "internalType": "struct RequestReceipt.CrossChainReceipt",
+            "name": "receipt",
+            "type": "tuple"
+          },
+          { "internalType": "bytes", "name": "sender", "type": "bytes" },
+          {
+            "internalType": "bytes32",
+            "name": "originMessageId",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "usdcAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "sourceChainSelector",
+            "type": "uint64"
+          },
+          {
+            "internalType": "address",
+            "name": "usdcAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct CrossChainPoolManager.CCIPReceipt",
+        "name": "ccipReceipt",
+        "type": "tuple"
+      }
+    ],
+    "name": "sendReceipt",
+    "outputs": [
+      { "internalType": "bytes32", "name": "messageId", "type": "bytes32" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }
+    ],
+    "name": "supportsInterface",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "withdrawETH",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  { "stateMutability": "payable", "type": "receive" }
+]

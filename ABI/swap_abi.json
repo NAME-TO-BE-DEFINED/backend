@@ -1,0 +1,42 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "usdc", "type": "address" },
+      {
+        "internalType": "contract TokenMock",
+        "name": "toToken",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "fromTokenAmount",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "toTokenAmount", "type": "uint256" }
+    ],
+    "name": "swapFromUSDC",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "fromToken", "type": "address" },
+      {
+        "internalType": "uint256",
+        "name": "fromTokenAmount",
+        "type": "uint256"
+      },
+      { "internalType": "address", "name": "usdc", "type": "address" },
+      {
+        "internalType": "uint256",
+        "name": "usdcAmountToReceive",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapToUSDC",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
